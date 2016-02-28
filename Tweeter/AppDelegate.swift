@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         print("name: \(user["name"])")
                         
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                        <#code#>
+                        
                 })
                 
                 twitterClient.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil,
@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         
                         
                     }, failure: { (task: NSURLSessionDataTask?, errro: NSError) -> Void in
-                        <#code#>
+                    
                 })
 
                 
