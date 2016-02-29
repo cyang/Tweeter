@@ -48,27 +48,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         print(url.description)
         let requestToken = BDBOAuth1Credential(queryString: url.query)
-        let twitterClient = BDBOAuth1SessionManager(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "5BXfPVEondBgiYdMlHoIRJ5zR", consumerSecret: "OvpdOdiEAZZi4GYUJFn9zjTcD1XzVrmnzno8ZuS2s6VqjlqT8y")
+        let client = TwitterClient.sharedInstance
+
         
-        twitterClient.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken,
+        client.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken,
             success: { (accessToken: BDBOAuth1Credential!) -> Void in
                 print("Get access token success")
                 
-                twitterClient.GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil,
+                client.GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil,
                     success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
                         print("account: \(response)")
-                        let user = response as! NSDictionary
-                        print("name: \(user["name"])")
+                        let userDictionary = response as! NSDictionary
+                        
+                        let user = User(dictionary: userDictionary)
+                        
+                        print(user.name)
                         
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                         
                 })
                 
-                twitterClient.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil,
+                client.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil,
                     success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                        let tweets = response as! [NSDictionary]
+                        let dictionaries = response as! [NSDictionary]
+                        
+                        let tweets = Tweet.tweetsWithArray(dictionaries)
+                        
                         for tweet in tweets {
-                            print("\(tweet["text"]!)")
+                            print("\(tweet.text!)")
                         }
                         
                         
