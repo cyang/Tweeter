@@ -30,10 +30,62 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="3r5-DT-Fdw" kind="modal" identifier="loginSegue" id="Vmt-xc-im1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="129" y="310"/>
+        </scene>
+        <!--Tweets View Controller-->
+        <scene sceneID="Ffh-hA-ILW">
+            <objects>
+                <viewController id="aIs-Te-XNF" customClass="TweetsViewController" customModule="Tweeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Val-Ma-GRn"/>
+                        <viewControllerLayoutGuide type="bottom" id="J2F-fh-15J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v1b-Ui-bzL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ylL-Vc-411">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ylL-Vc-411" firstAttribute="leading" secondItem="v1b-Ui-bzL" secondAttribute="leading" id="UUe-cx-SDO"/>
+                            <constraint firstItem="ylL-Vc-411" firstAttribute="top" secondItem="Val-Ma-GRn" secondAttribute="bottom" id="c4Y-5w-3Qo"/>
+                            <constraint firstItem="J2F-fh-15J" firstAttribute="top" secondItem="ylL-Vc-411" secondAttribute="bottom" id="p3P-ck-Kja"/>
+                            <constraint firstAttribute="trailing" secondItem="ylL-Vc-411" secondAttribute="trailing" id="vmS-gF-43I"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="K77-Eo-Zkn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7bb-vf-kTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1210" y="303"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7MO-9I-KvK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3r5-DT-Fdw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ej1-aU-tIT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aIs-Te-XNF" kind="relationship" relationship="rootViewController" id="zrz-GD-DDL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WeB-OV-Gh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="678" y="303"/>
         </scene>
     </scenes>
 </document>

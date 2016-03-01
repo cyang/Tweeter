@@ -11,8 +11,8 @@
 		DD16797E1C84FEF000DBFD3F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16797D1C84FEF000DBFD3F /* User.swift */; };
 		DD1679801C84FEFF00DBFD3F /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16797F1C84FEFF00DBFD3F /* Tweet.swift */; };
 		DD1679821C85044200DBFD3F /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1679811C85044200DBFD3F /* TwitterClient.swift */; };
+		DD1679841C85411200DBFD3F /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1679831C85411200DBFD3F /* TweetsViewController.swift */; };
 		DDBB20071C82A2FB00676B9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB20061C82A2FB00676B9F /* AppDelegate.swift */; };
-		DDBB20091C82A2FB00676B9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB20081C82A2FB00676B9F /* ViewController.swift */; };
 		DDBB200C1C82A2FB00676B9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBB200A1C82A2FB00676B9F /* Main.storyboard */; };
 		DDBB200F1C82A2FB00676B9F /* Tweeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDBB200D1C82A2FB00676B9F /* Tweeter.xcdatamodeld */; };
 		DDBB20111C82A2FC00676B9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBB20101C82A2FC00676B9F /* Assets.xcassets */; };
@@ -45,9 +45,9 @@
 		DD16797D1C84FEF000DBFD3F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD16797F1C84FEFF00DBFD3F /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		DD1679811C85044200DBFD3F /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		DD1679831C85411200DBFD3F /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		DDBB20031C82A2FB00676B9F /* Tweeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tweeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDBB20061C82A2FB00676B9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDBB20081C82A2FB00676B9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DDBB200B1C82A2FB00676B9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDBB200E1C82A2FB00676B9F /* Tweeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tweeter.xcdatamodel; sourceTree = "<group>"; };
 		DDBB20101C82A2FC00676B9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,8 +118,8 @@
 		DD16797B1C84FEB100DBFD3F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DDBB20081C82A2FB00676B9F /* ViewController.swift */,
 				DDBB20371C83689200676B9F /* LoginViewController.swift */,
+				DD1679831C85411200DBFD3F /* TweetsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -373,9 +373,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1679841C85411200DBFD3F /* TweetsViewController.swift in Sources */,
 				DDBB20381C83689200676B9F /* LoginViewController.swift in Sources */,
 				DDBB200F1C82A2FB00676B9F /* Tweeter.xcdatamodeld in Sources */,
-				DDBB20091C82A2FB00676B9F /* ViewController.swift in Sources */,
 				DD1679801C84FEFF00DBFD3F /* Tweet.swift in Sources */,
 				DD1679821C85044200DBFD3F /* TwitterClient.swift in Sources */,
 				DD16797E1C84FEF000DBFD3F /* User.swift in Sources */,

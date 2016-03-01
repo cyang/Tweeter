@@ -47,46 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         print(url.description)
-        let requestToken = BDBOAuth1Credential(queryString: url.query)
-        let client = TwitterClient.sharedInstance
-
-        
-        client.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken,
-            success: { (accessToken: BDBOAuth1Credential!) -> Void in
-                print("Get access token success")
-                
-                client.GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil,
-                    success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                        print("account: \(response)")
-                        let userDictionary = response as! NSDictionary
-                        
-                        let user = User(dictionary: userDictionary)
-                        
-                        print(user.name)
-                        
-                    }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                        
-                })
-                
-                client.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil,
-                    success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                        let dictionaries = response as! [NSDictionary]
-                        
-                        let tweets = Tweet.tweetsWithArray(dictionaries)
-                        
-                        for tweet in tweets {
-                            print("\(tweet.text!)")
-                        }
-                        
-                        
-                    }, failure: { (task: NSURLSessionDataTask?, errro: NSError) -> Void in
-                    
-                })
-
-                
-            }) { (error: NSError!) -> Void in
-                print("error: \(error.localizedDescription)")
-            }
+        TwitterClient.sharedInstance.handleOpenUrl(url)
         
         return true
     }
