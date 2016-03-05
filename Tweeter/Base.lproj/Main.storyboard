@@ -50,20 +50,94 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ylL-Vc-411">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ylL-Vc-411">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="115" id="iXA-km-eXN" customClass="TweetCell" customModule="Tweeter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iXA-km-eXN" id="hOV-GT-Cbh">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abP-IV-LD6">
+                                                    <rect key="frame" x="8" y="8" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="eI3-d1-ND0"/>
+                                                        <constraint firstAttribute="height" constant="50" id="wxY-hB-rRi"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raja Mustafa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AX-nz-vxe">
+                                                    <rect key="frame" x="66" y="8" width="106" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdP-XS-vcd">
+                                                    <rect key="frame" x="293" y="8" width="19" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAP-RJ-Z0N">
+                                                    <rect key="frame" x="66" y="37" width="246" height="69"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@rajamustafa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWX-VQ-21T">
+                                                    <rect key="frame" x="180" y="8" width="83" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.37469785911602205" green="0.37469785911602205" blue="0.37469785911602205" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iAP-RJ-Z0N" firstAttribute="top" secondItem="7AX-nz-vxe" secondAttribute="bottom" constant="8" id="7sp-rb-Aub"/>
+                                                <constraint firstItem="EWX-VQ-21T" firstAttribute="leading" secondItem="7AX-nz-vxe" secondAttribute="trailing" constant="8" id="BpK-0G-tsV"/>
+                                                <constraint firstItem="abP-IV-LD6" firstAttribute="top" secondItem="hOV-GT-Cbh" secondAttribute="top" constant="8" id="Btc-XX-4Ck"/>
+                                                <constraint firstItem="YdP-XS-vcd" firstAttribute="top" secondItem="hOV-GT-Cbh" secondAttribute="top" constant="8" id="HfM-9k-PlW"/>
+                                                <constraint firstItem="iAP-RJ-Z0N" firstAttribute="top" secondItem="EWX-VQ-21T" secondAttribute="bottom" constant="8" id="JKd-cx-63h"/>
+                                                <constraint firstItem="7AX-nz-vxe" firstAttribute="top" secondItem="hOV-GT-Cbh" secondAttribute="top" constant="8" id="Lu2-7R-aH7"/>
+                                                <constraint firstAttribute="bottom" secondItem="iAP-RJ-Z0N" secondAttribute="bottom" constant="8" id="QMc-W6-n8H"/>
+                                                <constraint firstAttribute="trailing" secondItem="iAP-RJ-Z0N" secondAttribute="trailing" constant="8" id="RUX-IN-Anz"/>
+                                                <constraint firstItem="EWX-VQ-21T" firstAttribute="top" secondItem="hOV-GT-Cbh" secondAttribute="top" constant="8" id="Ybs-j9-oOF"/>
+                                                <constraint firstAttribute="trailing" secondItem="YdP-XS-vcd" secondAttribute="trailing" constant="8" id="f2V-eu-zIY"/>
+                                                <constraint firstItem="iAP-RJ-Z0N" firstAttribute="leading" secondItem="abP-IV-LD6" secondAttribute="trailing" constant="8" id="twm-5F-a44"/>
+                                                <constraint firstItem="7AX-nz-vxe" firstAttribute="leading" secondItem="abP-IV-LD6" secondAttribute="trailing" constant="8" id="vNe-4Q-iIL"/>
+                                                <constraint firstItem="abP-IV-LD6" firstAttribute="leading" secondItem="hOV-GT-Cbh" secondAttribute="leading" constant="8" id="xBd-VV-V9g"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profileImageView" destination="abP-IV-LD6" id="ZYg-x3-vaW"/>
+                                            <outlet property="timestampLabel" destination="YdP-XS-vcd" id="g7D-Ek-EV3"/>
+                                            <outlet property="tweetPostLabel" destination="iAP-RJ-Z0N" id="s3A-jH-8lb"/>
+                                            <outlet property="twitterHandleLabel" destination="EWX-VQ-21T" id="EmO-W8-Tag"/>
+                                            <outlet property="usernameLabel" destination="7AX-nz-vxe" id="3ts-qB-0kz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ylL-Vc-411" firstAttribute="leading" secondItem="v1b-Ui-bzL" secondAttribute="leading" id="UUe-cx-SDO"/>
-                            <constraint firstItem="ylL-Vc-411" firstAttribute="top" secondItem="Val-Ma-GRn" secondAttribute="bottom" id="c4Y-5w-3Qo"/>
-                            <constraint firstItem="J2F-fh-15J" firstAttribute="top" secondItem="ylL-Vc-411" secondAttribute="bottom" id="p3P-ck-Kja"/>
-                            <constraint firstAttribute="trailing" secondItem="ylL-Vc-411" secondAttribute="trailing" id="vmS-gF-43I"/>
+                            <constraint firstItem="ylL-Vc-411" firstAttribute="leading" secondItem="v1b-Ui-bzL" secondAttribute="leading" id="EV7-uZ-Ulz"/>
+                            <constraint firstItem="J2F-fh-15J" firstAttribute="top" secondItem="ylL-Vc-411" secondAttribute="bottom" id="SFG-Rk-se4"/>
+                            <constraint firstAttribute="trailing" secondItem="ylL-Vc-411" secondAttribute="trailing" id="dpP-oc-xy4"/>
+                            <constraint firstItem="ylL-Vc-411" firstAttribute="top" secondItem="v1b-Ui-bzL" secondAttribute="top" id="lU3-PG-0ds"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="K77-Eo-Zkn"/>
+                    <navigationItem key="navigationItem" id="K77-Eo-Zkn">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="jaJ-PD-DPf">
+                            <connections>
+                                <action selector="onLogoutButton:" destination="aIs-Te-XNF" id="nHx-du-jdH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="ylL-Vc-411" id="tX2-Ph-L50"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bb-vf-kTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,11 +146,12 @@
         <!--Navigation Controller-->
         <scene sceneID="7MO-9I-KvK">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3r5-DT-Fdw" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="3r5-DT-Fdw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ej1-aU-tIT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.045040994407240631" green="0.66994081620741142" blue="0.87754661602209949" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
