@@ -18,11 +18,29 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var tweetPostLabel: UILabel!
     
+    @IBOutlet weak var replyImageView: UIImageView!
+    @IBOutlet weak var retweetImageView: UIImageView!
+    @IBOutlet weak var likeImageView: UIImageView!
+    
+    @IBOutlet weak var retweetedImageView: UIImageView!
+    
     var tweet: Tweet! {
         didSet {
-            print(tweet.text)
+            profileImageView.setImageWithURL(tweet.profileImageUrl!)
+            usernameLabel.text = tweet.username as String
+            twitterHandleLabel.text = ("@\(tweet.twitterHandle as String)")
             tweetPostLabel.text = tweet.text as? String
             
+            print(tweet.timeStamp)
+            
+            replyImageView.setImageWithURL(NSURL(string: "https://g.twimg.com/dev/documentation/image/reply-action_0.png")!)
+
+            retweetImageView.setImageWithURL(NSURL(string: "https://g.twimg.com/dev/documentation/image/retweet-action.png")!)
+        
+            likeImageView.setImageWithURL(NSURL(string: "https://g.twimg.com/dev/documentation/image/like-action.png")!)
+            
+            retweetedImageView.setImageWithURL(NSURL(string: "https://g.twimg.com/dev/documentation/image/retweet-action.png")!)
+         
         }
     }
     

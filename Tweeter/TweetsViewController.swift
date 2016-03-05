@@ -12,19 +12,23 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tableView: UITableView!
     
-    var tweets: [Tweet]!
+    var tweets: [Tweet]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
         
         TwitterClient.sharedInstance.homeTimeline({ (tweets: [Tweet]) -> () in
             self.tweets = tweets
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+            self.tableView.rowHeight = UITableViewAutomaticDimension
+            self.tableView.estimatedRowHeight = 120
+            
+            self.tableView.reloadData()
             
         }) { (error: NSError) -> () in
-            print(error.localizedDescription)
+            print("Error: \(error.localizedDescription)")
         }
 
         // Do any additional setup after loading the view.
@@ -42,6 +46,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tweets != nil {
+            print(tweets!.count)
             return tweets!.count
         } else {
             return 0
