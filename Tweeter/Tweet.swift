@@ -16,6 +16,7 @@ class Tweet: NSObject {
     var profileImageUrl: NSURL?
     var twitterHandle: NSString!
     var username: NSString!
+    var timeDisplay: NSString!
     
     init(dictionary: NSDictionary) {
         text = dictionary["text"] as? String
@@ -32,9 +33,30 @@ class Tweet: NSObject {
         
         
         if let timeStampString = timeStampString {
+            
+            let calendar = NSCalendar.currentCalendar()
+            let date = NSDate()
+            let currentHour = calendar.component(.Hour, fromDate: date)
+            let currentDay = calendar.component(.Day, fromDate: date)
+            
+            print(timeStampString)
+
             let formatter = NSDateFormatter()
+            formatter.timeZone = NSTimeZone(abbreviation: "EST")
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             timeStamp = formatter.dateFromString(timeStampString)
+            
+            let hour = calendar.component(.Hour, fromDate: timeStamp!)
+            let day = calendar.component(.Day, fromDate: timeStamp!)
+
+            if (currentDay == day){
+                if (currentHour - hour >= 0) {
+                    timeDisplay = String(currentHour - hour)
+                }
+            } else {
+                timeDisplay = "24+"
+            }
+            
         }
     }
     

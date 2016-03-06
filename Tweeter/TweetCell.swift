@@ -30,8 +30,8 @@ class TweetCell: UITableViewCell {
             usernameLabel.text = tweet.username as String
             twitterHandleLabel.text = ("@\(tweet.twitterHandle as String)")
             tweetPostLabel.text = tweet.text as? String
+            timestampLabel.text = "\(tweet.timeDisplay as String)h"
             
-            print(tweet.timeStamp)
             
             replyImageView.setImageWithURL(NSURL(string: "https://g.twimg.com/dev/documentation/image/reply-action_0.png")!)
 
