@@ -89,5 +89,23 @@ class TwitterClient: BDBOAuth1SessionManager {
         
         NSNotificationCenter.defaultCenter().postNotificationName(User.userDidLogoutNotification, object: nil)
     }
+    
+    func like(id: String){
+        POST("1.1/favorites/create.json?id=\(id)", parameters: nil, constructingBodyWithBlock: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("Liked")
+            }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("NO")
+        }
+        
+    }
+    
+    func retweet(id: String){
+        POST("/1.1/statuses/retweet/\(id).json", parameters: nil, constructingBodyWithBlock: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("Retweet!")
+            }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("NO")
+        }
+        
+    }
 
 }

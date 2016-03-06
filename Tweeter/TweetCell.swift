@@ -79,10 +79,18 @@ class TweetCell: UITableViewCell {
     @IBAction func onRetweetButton(sender: AnyObject) {
         print(tweet.retweetCount)
         retweetButton.setImage(UIImage(named: "retweet_action_on"), forState: UIControlState.Normal)
+        TwitterClient.sharedInstance.retweet(tweet.id as String)
+        
+        print(tweet.retweetCount)
+
     }
     
     @IBAction func onLikeButton(sender: AnyObject) {
         print(tweet.favoritesCount)
         likeButton.setImage(UIImage(named: "like_action_on"), forState: UIControlState.Normal)
+        TwitterClient.sharedInstance.like(tweet.id as String)
+        
+        print(tweet.favoritesCount)
+
     }
 }

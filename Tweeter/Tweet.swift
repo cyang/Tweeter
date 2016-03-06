@@ -22,8 +22,11 @@ class Tweet: NSObject {
     var retweet_handle: NSString!
     var retweet_username: NSString!
     var retweet_imageURL: NSURL?
+    var id: NSString!
     
     init(dictionary: NSDictionary) {
+        id = dictionary["id_str"] as! String
+        
         text = dictionary["text"] as? String
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
         favoritesCount = (dictionary["favourites_count"] as? Int) ?? 0
