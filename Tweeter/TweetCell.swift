@@ -18,9 +18,9 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var tweetPostLabel: UILabel!
     
-    @IBOutlet weak var replyImageView: UIImageView!
-    @IBOutlet weak var retweetImageView: UIImageView!
-    @IBOutlet weak var likeImageView: UIImageView!
+    @IBOutlet weak var replyButton: UIButton!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var likeButton: UIButton!
     
     @IBOutlet weak var retweetedImageView: UIImageView!
     
@@ -33,13 +33,11 @@ class TweetCell: UITableViewCell {
             twitterHandleLabel.text = ("@\(tweet.twitterHandle as String)")
             tweetPostLabel.text = tweet.text as? String
             timestampLabel.text = "\(tweet.timeDisplay as String)h"
-            
-            
-            replyImageView.setImageWithURL(NSURL(string: "https://g.twimg.com/dev/documentation/image/reply-action_0.png")!)
 
-            retweetImageView.setImageWithURL(NSURL(string: "https://g.twimg.com/dev/documentation/image/retweet-action.png")!)
-        
-            likeImageView.setImageWithURL(NSURL(string: "https://g.twimg.com/dev/documentation/image/like-action.png")!)
+
+            likeButton.setImage(UIImage(named: "like_action"), forState: UIControlState.Normal)
+            retweetButton.setImage(UIImage(named: "retweet_action"), forState: UIControlState.Normal)
+            replyButton.setImage(UIImage(named: "reply_action"), forState: UIControlState.Normal)
             
             handleRetweets()
         }
@@ -77,4 +75,6 @@ class TweetCell: UITableViewCell {
             retweetedImageView.hidden = true
         }
     }
+
+    
 }
