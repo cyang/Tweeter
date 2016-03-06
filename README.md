@@ -41,7 +41,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 
-I had a lot of trouble figuring out how to enable UIImageView with tap action. I instead used a button and set an image for it instead.
+- I had a lot of trouble figuring out how to enable UIImageView with tap action. I used a button and set an image for it instead.
 
 ## License
 
