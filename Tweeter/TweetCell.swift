@@ -24,6 +24,8 @@ class TweetCell: UITableViewCell {
     
     @IBOutlet weak var retweetedImageView: UIImageView!
     
+    @IBOutlet weak var userRetweeted: UILabel!
+    
     var tweet: Tweet! {
         didSet {
             profileImageView.setImageWithURL(tweet.profileImageUrl!)
@@ -39,8 +41,7 @@ class TweetCell: UITableViewCell {
         
             likeImageView.setImageWithURL(NSURL(string: "https://g.twimg.com/dev/documentation/image/like-action.png")!)
             
-            retweetedImageView.setImageWithURL(NSURL(string: "https://g.twimg.com/dev/documentation/image/retweet-action.png")!)
-         
+            handleRetweets()
         }
     }
     
@@ -55,4 +56,25 @@ class TweetCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func handleRetweets(){
+        if (tweet.retweet_status == true) {
+            userRetweeted.hidden = false
+            retweetedImageView.hidden = false
+            
+            retweetedImageView.setImageWithURL(NSURL(string: "https://g.twimg.com/dev/documentation/image/retweet-action.png")!)
+            userRetweeted.text = "\(tweet.username) retweeted"
+            profileImageView.setImageWithURL(tweet.retweet_imageURL!)
+            
+            usernameLabel.text = tweet.retweet_username as
+            String
+            
+            twitterHandleLabel.text = "@\(tweet.retweet_handle)"
+            
+            tweetPostLabel.text = tweet.retweet_text as String
+            
+        } else {
+            userRetweeted.hidden = true
+            retweetedImageView.hidden = true
+        }
+    }
 }

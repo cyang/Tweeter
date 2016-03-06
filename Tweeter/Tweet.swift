@@ -17,6 +17,11 @@ class Tweet: NSObject {
     var twitterHandle: NSString!
     var username: NSString!
     var timeDisplay: NSString!
+    var retweet_status = false
+    var retweet_text: NSString!
+    var retweet_handle: NSString!
+    var retweet_username: NSString!
+    var retweet_imageURL: NSURL?
     
     init(dictionary: NSDictionary) {
         text = dictionary["text"] as? String
@@ -27,6 +32,18 @@ class Tweet: NSObject {
         profileImageUrl = NSURL(string: (dictionary["user"]!["profile_image_url_https"] as! String))!
         twitterHandle = dictionary["user"]!["screen_name"] as! String
         username = dictionary["user"]!["name"] as! String
+        
+        let retweeted_status = dictionary["retweeted_status"]
+        
+        if (retweeted_status != nil){
+            retweet_status = true
+            retweet_username = retweeted_status!["user"]!!["name"] as! String
+            retweet_text = retweeted_status!["text"] as! String
+            retweet_imageURL = NSURL(string: retweeted_status!["user"]!!["profile_image_url_https"] as! String)
+            retweet_handle = retweeted_status!["user"]!!["screen_name"] as! String
+            
+            
+        }
         
         
         let timeStampString = dictionary["created_at"] as? String
