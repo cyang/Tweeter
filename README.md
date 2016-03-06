@@ -27,7 +27,7 @@ The following **additional** features are implemented:
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. I'd like to know more about how this syntax works: func currentAccount(success: (User) -> (), failure: (NSError) -> ())
-2. 
+2. What exactly does the static var _NAMEOFVAR do?
 
 ## Video Walkthrough 
 
