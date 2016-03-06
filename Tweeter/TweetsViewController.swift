@@ -46,7 +46,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tweets != nil {
-            print(tweets!.count)
             return tweets!.count
         } else {
             return 0

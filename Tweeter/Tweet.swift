@@ -56,8 +56,6 @@ class Tweet: NSObject {
             let currentHour = calendar.component(.Hour, fromDate: date)
             let currentDay = calendar.component(.Day, fromDate: date)
             
-            print(timeStampString)
-
             let formatter = NSDateFormatter()
             formatter.timeZone = NSTimeZone(abbreviation: "EST")
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"

@@ -20,8 +20,6 @@ class TwitterClient: BDBOAuth1SessionManager {
         GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil,
             success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 let dictionaries = response as! [NSDictionary]
-                print(dictionaries)
-                
                 let tweets = Tweet.tweetsWithArray(dictionaries)
                 
                 success(tweets)
@@ -91,4 +89,5 @@ class TwitterClient: BDBOAuth1SessionManager {
         
         NSNotificationCenter.defaultCenter().postNotificationName(User.userDidLogoutNotification, object: nil)
     }
+
 }
