@@ -45,6 +45,14 @@ class TweetCell: UITableViewCell {
             retweetCount.text = String(tweet.retweetCount)
             likeCount.text = String(tweet.favoritesCount)
             
+            if (tweet.retweeted_bool) {
+                retweetButton.setImage(UIImage(named: "retweet_action_on"), forState: UIControlState.Normal)
+            }
+            
+            if (tweet.liked_bool) {
+                likeButton.setImage(UIImage(named: "like_action_on"), forState: UIControlState.Normal)
+            }
+            
             handleRetweets()
         }
     }
@@ -84,16 +92,31 @@ class TweetCell: UITableViewCell {
 
     @IBAction func onRetweetButton(sender: AnyObject) {
         retweetButton.setImage(UIImage(named: "retweet_action_on"), forState: UIControlState.Normal)
-        TwitterClient.sharedInstance.retweet(tweet.id as String)
+        TwitterClient.sharedInstance.retweet(tweet.id as String,
+            success: { (tweet: Tweet) -> () in
+                self.tweet = tweet
+                self.retweetCount.text = String(tweet.retweetCount)
+                
+                print("RETWEETED")
+
+            }) { (error: NSError) -> () in
+                print("NO RETWEET")
+        }
         
         
         
-        retweetCount.text = String(tweet.retweetCount)
     }
     
     @IBAction func onLikeButton(sender: AnyObject) {
         likeButton.setImage(UIImage(named: "like_action_on"), forState: UIControlState.Normal)
-        TwitterClient.sharedInstance.like(tweet.id as String)
+        TwitterClient.sharedInstance.like(tweet.id as String,
+            success: { (tweet: Tweet) -> () in
+                self.tweet = tweet
+                self.likeCount.text = String(tweet.favoritesCount)
+                print("LIKED")
+            }) { (error: NSError) -> () in
+                print("NO LIKE")
+        }
         
         likeCount.text = String(tweet.favoritesCount)
 

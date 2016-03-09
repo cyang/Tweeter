@@ -24,14 +24,13 @@ class Tweet: NSObject {
     var retweet_imageURL: NSURL?
     var id: NSString!
     
+    var retweeted_bool = false
+    var liked_bool = false
+    
     init(dictionary: NSDictionary) {
         id = dictionary["id_str"] as! String
         
         text = dictionary["text"] as? String
-        retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
-        
-        favoritesCount = (dictionary["favorite_count"] as? Int) ?? 0
-        
 
         profileImageUrl = NSURL(string: (dictionary["user"]!["profile_image_url_https"] as! String))!
         twitterHandle = dictionary["user"]!["screen_name"] as! String
@@ -49,6 +48,22 @@ class Tweet: NSObject {
             
         }
         
+        if (retweet_status){
+            retweetCount = (retweeted_status!["retweet_count"] as? Int) ?? 0
+            favoritesCount = (retweeted_status!["favorite_count"] as? Int) ?? 0
+        } else {
+            retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
+            favoritesCount = (dictionary["favorite_count"] as? Int) ?? 0
+        }
+        
+        
+        
+        if ((dictionary["retweeted"] as? Int) == 1){
+            retweeted_bool = true
+        }
+        if ((dictionary["favorited"] as? Int) == 1){
+            liked_bool = true
+        }
         
         let timeStampString = dictionary["created_at"] as? String
         
