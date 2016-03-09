@@ -26,6 +26,9 @@ class TweetCell: UITableViewCell {
     
     @IBOutlet weak var userRetweeted: UILabel!
     
+    @IBOutlet weak var retweetCount: UILabel!
+    @IBOutlet weak var likeCount: UILabel!
+    
     var tweet: Tweet! {
         didSet {
             profileImageView.setImageWithURL(tweet.profileImageUrl!)
@@ -38,6 +41,9 @@ class TweetCell: UITableViewCell {
             likeButton.setImage(UIImage(named: "like_action"), forState: UIControlState.Normal)
             retweetButton.setImage(UIImage(named: "retweet_action"), forState: UIControlState.Normal)
             replyButton.setImage(UIImage(named: "reply_action"), forState: UIControlState.Normal)
+            
+            retweetCount.text = String(tweet.retweetCount)
+            likeCount.text = String(tweet.favoritesCount)
             
             handleRetweets()
         }
@@ -77,20 +83,20 @@ class TweetCell: UITableViewCell {
     }
 
     @IBAction func onRetweetButton(sender: AnyObject) {
-        print(tweet.retweetCount)
         retweetButton.setImage(UIImage(named: "retweet_action_on"), forState: UIControlState.Normal)
         TwitterClient.sharedInstance.retweet(tweet.id as String)
         
-        print(tweet.retweetCount)
-
+        
+        
+        retweetCount.text = String(tweet.retweetCount)
     }
     
     @IBAction func onLikeButton(sender: AnyObject) {
-        print(tweet.favoritesCount)
         likeButton.setImage(UIImage(named: "like_action_on"), forState: UIControlState.Normal)
         TwitterClient.sharedInstance.like(tweet.id as String)
         
-        print(tweet.favoritesCount)
+        likeCount.text = String(tweet.favoritesCount)
+
 
     }
 }

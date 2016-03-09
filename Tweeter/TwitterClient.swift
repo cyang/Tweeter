@@ -92,6 +92,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     func like(id: String){
         POST("1.1/favorites/create.json?id=\(id)", parameters: nil, constructingBodyWithBlock: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print(response)
             print("Liked")
             }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 print("NO")

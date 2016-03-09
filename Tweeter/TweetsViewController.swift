@@ -60,7 +60,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-
     /*
     // MARK: - Navigation
 
