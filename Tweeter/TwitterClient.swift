@@ -112,8 +112,17 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 failure(error)
-        }
+            }
         
+    }
+    
+    func post(text: String) {
+    POST("1.1/statuses/update.json?status=\(text)", parameters: nil, constructingBodyWithBlock: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("COMPOSED")
+        }) { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+            print(error.localizedDescription)
+
+        }
     }
 
 }
