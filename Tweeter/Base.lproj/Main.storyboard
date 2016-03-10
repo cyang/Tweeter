@@ -386,6 +386,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ACH-Fp-gsa" firstAttribute="top" secondItem="4B7-bp-D35" secondAttribute="bottom" constant="8" id="4r6-dm-jRS"/>
                             <constraint firstItem="N2O-Co-9V7" firstAttribute="leading" secondItem="MzH-TU-CDM" secondAttribute="leading" constant="8" id="9gN-3o-2m7"/>
@@ -398,6 +399,9 @@
                             <constraint firstItem="ACH-Fp-gsa" firstAttribute="leading" secondItem="N2O-Co-9V7" secondAttribute="trailing" constant="8" id="x8B-Zm-VrA"/>
                             <constraint firstAttribute="trailing" secondItem="gbQ-la-V5v" secondAttribute="trailing" constant="8" id="zES-rr-Qip"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="xhg-61-Utf" appends="YES" id="5RE-i2-75G"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="nZ6-OE-EC7">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="wBw-fa-VKz">
@@ -425,6 +429,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8h-gv-i2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xhg-61-Utf">
+                    <connections>
+                        <action selector="onTap:" destination="liN-K2-kW7" id="TIi-gr-XPa"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2149" y="939"/>
         </scene>

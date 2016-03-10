@@ -17,10 +17,14 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var characterCountButton: UIBarButtonItem!
     
+    var user: User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        profileImageView.setImageWithURL(user.profileUrl!)
+        usernameLabel.text = user.name as? String
+        twitterHandleLabel.text = user.screenName as? String
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +33,8 @@ class ComposeViewController: UIViewController {
     }
     
     @IBAction func onTweetButton(sender: AnyObject) {
+        TwitterClient.sharedInstance.post(messageField.text!)
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func onCancelButton(sender: AnyObject) {
@@ -37,6 +43,10 @@ class ComposeViewController: UIViewController {
 
     @IBAction func onEditingChanged(sender: AnyObject) {
         characterCountButton.title = String(140 - messageField.text!.characters.count)
+    }
+    
+    @IBAction func onTap(sender: AnyObject) {
+        view.endEditing(true)
     }
     
     /*
