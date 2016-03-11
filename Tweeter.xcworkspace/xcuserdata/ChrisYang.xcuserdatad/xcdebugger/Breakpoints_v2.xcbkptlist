@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tweeter/User.swift"
-            timestampString = "479350845.377059"
+            timestampString = "479429436.990396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "User"
             landmarkType = "3">
          </BreakpointContent>
@@ -80,6 +80,194 @@
             startingLineNumber = "47"
             endingLineNumber = "47"
             landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tweeter/ProfileViewController.swift"
+            timestampString = "479426494.444555"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "ProfileViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tweeter.ProfileViewController.user.setter : Swift.ImplicitlyUnwrappedOptional&lt;Tweeter.User&gt;"
+                  moduleName = "Tweeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ChrisYang/Xcode%20Projects/Tweeter/Tweeter/ProfileViewController.swift"
+                  timestampString = "479426634.621048"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tweeter.ProfileViewController.user.materializeForSet : Swift.ImplicitlyUnwrappedOptional&lt;Tweeter.User&gt;"
+                  moduleName = "Tweeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ChrisYang/Xcode%20Projects/Tweeter/Tweeter/ProfileViewController.swift"
+                  timestampString = "479426634.621403"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tweeter.ProfileViewController.init (Tweeter.ProfileViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Tweeter.ProfileViewController"
+                  moduleName = "Tweeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ChrisYang/Xcode%20Projects/Tweeter/Tweeter/ProfileViewController.swift"
+                  timestampString = "479426634.621744"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "628">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tweeter.ProfileViewController.init (Tweeter.ProfileViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Tweeter.ProfileViewController&gt;"
+                  moduleName = "Tweeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ChrisYang/Xcode%20Projects/Tweeter/Tweeter/ProfileViewController.swift"
+                  timestampString = "479426634.621933"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "528">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tweeter/ProfileViewController.swift"
+            timestampString = "479427300.62827"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ProfileViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tweeter.ProfileViewController.screenName.setter : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "Tweeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ChrisYang/Xcode%20Projects/Tweeter/Tweeter/ProfileViewController.swift"
+                  timestampString = "479427753.42216"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "50">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tweeter.ProfileViewController.screenName.materializeForSet : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "Tweeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ChrisYang/Xcode%20Projects/Tweeter/Tweeter/ProfileViewController.swift"
+                  timestampString = "479427753.422482"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tweeter.ProfileViewController.init (Tweeter.ProfileViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Tweeter.ProfileViewController"
+                  moduleName = "Tweeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ChrisYang/Xcode%20Projects/Tweeter/Tweeter/ProfileViewController.swift"
+                  timestampString = "479427753.422783"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tweeter.ProfileViewController.init (Tweeter.ProfileViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Tweeter.ProfileViewController&gt;"
+                  moduleName = "Tweeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ChrisYang/Xcode%20Projects/Tweeter/Tweeter/ProfileViewController.swift"
+                  timestampString = "479427753.42299"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "63">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tweeter/DetailsViewController.swift"
+            timestampString = "479427394.177461"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "handleTap(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tweeter/DetailsViewController.swift"
+            timestampString = "479427470.014948"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "handleTap(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

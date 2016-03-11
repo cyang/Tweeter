@@ -133,9 +133,10 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         
         let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("ProfileView") as! ProfileViewController
         
-        nextViewController.tweet = self.tweet
+        nextViewController.screenName = tweet.twitterHandle as String
         
-        self.presentViewController(nextViewController, animated:true, completion:nil)
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+
     }
 
 }

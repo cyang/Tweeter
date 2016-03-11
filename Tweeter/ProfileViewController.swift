@@ -9,6 +9,9 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    var screenName: String?
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var bannerImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -18,17 +21,25 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followersCountLabel: UILabel!
     
-    var tweet: Tweet!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        profileImageView.setImageWithURL(tweet.profileImageUrl!)
-        usernameLabel.text = tweet.username as String
-        twitterHandleLabel.text = ("@\(tweet.twitterHandle as String)")
-        
-        
-        // Do any additional setup after loading the view.
+        TwitterClient.sharedInstance.getUser(screenName! as String, success: { (user: User) -> () in
+                self.user = user
+                self.profileImageView.setImageWithURL(user.profileUrl!)
+                self.usernameLabel.text = user.name as? String
+                self.twitterHandleLabel.text = ("@\(user.screenName as! String)")
+            
+                self.tweetsCountLabel.text = String(user.tweetsCount)
+                self.followersCountLabel.text = String(user.followersCount)
+                self.followingCountLabel.text = String(user.followingCount)
+            
+            
+            }) { (error: NSError) -> () in
+                print(error.localizedDescription)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +50,6 @@ class ProfileViewController: UIViewController {
     @IBAction func onBackButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
     /*
     // MARK: - Navigation
 
