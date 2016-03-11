@@ -10,6 +10,18 @@ import UIKit
 
 class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var twitterHandleLabel: UILabel!
+    
+    @IBOutlet weak var followingCountLabel: UILabel!
+    @IBOutlet weak var followersCountLabel: UILabel!
+    @IBOutlet weak var tweetsCountLabel: UILabel!
+    
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    var user: User!
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     var tweets: [Tweet]?
@@ -17,6 +29,21 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        TwitterClient.sharedInstance.currentAccount({ (user: User) -> () in
+            self.user = user
+            
+            self.profileImageView.setImageWithURL(self.user.profileUrl!)
+            self.usernameLabel.text = self.user.name as? String
+            self.twitterHandleLabel.text = self.user.screenName as? String
+            self.backgroundImageView.setImageWithURL(self.user.backgroundImageUrl!)
+            
+            self.followersCountLabel.text = String(self.user.followersCount)
+            self.followingCountLabel.text = String(self.user.followingCount)
+            self.tweetsCountLabel.text = String(self.user.tweetsCount)
+            
+            }) { (error: NSError) -> () in
+                print(error.localizedDescription)
+        }
         
         TwitterClient.sharedInstance.homeTimeline({ (tweets: [Tweet]) -> () in
             self.tweets = tweets
@@ -70,7 +97,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
             let detailsViewController = segue.destinationViewController as! DetailsViewController
             detailsViewController.tweet = tweet
-        } 
+        } else {
+            let nav = segue.destinationViewController as! UINavigationController
+            let composeViewController = nav.topViewController as! ComposeViewController
+            composeViewController.user = self.user
+        }
     }
 
 
