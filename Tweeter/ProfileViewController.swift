@@ -1,5 +1,5 @@
 //
-//  ComposeViewController.swift
+//  ProfileViewController.swift
 //  Tweeter
 //
 //  Created by Christopher Yang on 3/10/16.
@@ -8,23 +8,27 @@
 
 import UIKit
 
-class ComposeViewController: UIViewController {
-
+class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var bannerImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var twitterHandleLabel: UILabel!
+
+    @IBOutlet weak var tweetsCountLabel: UILabel!
+    @IBOutlet weak var followingCountLabel: UILabel!
+    @IBOutlet weak var followersCountLabel: UILabel!
     
-    @IBOutlet weak var messageField: UITextField!
-    @IBOutlet weak var characterCountButton: UIBarButtonItem!
-    
-    var user: User!
+    var tweet: Tweet!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        profileImageView.setImageWithURL(tweet.profileImageUrl!)
+        usernameLabel.text = tweet.username as String
+        twitterHandleLabel.text = ("@\(tweet.twitterHandle as String)")
         
-        profileImageView.setImageWithURL(user.profileUrl!)
-        usernameLabel.text = user.name as? String
-        twitterHandleLabel.text = "@\(user.screenName as! String)"
+        
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,23 +36,10 @@ class ComposeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onTweetButton(sender: AnyObject) {
-        TwitterClient.sharedInstance.post(messageField.text!)
+    @IBAction func onBackButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    @IBAction func onCancelButton(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-
-    @IBAction func onEditingChanged(sender: AnyObject) {
-        characterCountButton.title = String(140 - messageField.text!.characters.count)
-    }
-    
-    @IBAction func onTap(sender: AnyObject) {
-        view.endEditing(true)
-    }
-    
     /*
     // MARK: - Navigation
 

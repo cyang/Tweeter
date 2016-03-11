@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
 
     var tweet: Tweet!
     
@@ -28,10 +28,22 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     
+    @IBOutlet weak var timeStampLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // create an instance of UITapGestureRecognizer and tell it to run
+        // an action we'll call "handleTap:"
+        let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+        // we use our delegate
+        tap.delegate = self
+        // allow for user interaction
+        profileImageView.userInteractionEnabled = true
+        // add tap as a gestureRecognizer to tapView
+        profileImageView.addGestureRecognizer(tap)
+            
+            
         profileImageView.setImageWithURL(tweet.profileImageUrl!)
         usernameLabel.text = tweet.username as String
         twitterHandleLabel.text = ("@\(tweet.twitterHandle as String)")
@@ -51,6 +63,8 @@ class DetailsViewController: UIViewController {
         if (tweet.liked_bool) {
             likeButton.setImage(UIImage(named: "like_action_on"), forState: UIControlState.Normal)
         }
+        
+        timeStampLabel.text = String(tweet.timeStamp!)
         
         handleRetweets()
 
@@ -84,14 +98,44 @@ class DetailsViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    @IBAction func onRetweetButton(sender: AnyObject) {
+        retweetButton.setImage(UIImage(named: "retweet_action_on"), forState: UIControlState.Normal)
+        TwitterClient.sharedInstance.retweet(tweet.id as String,
+            success: { (tweet: Tweet) -> () in
+                self.tweet = tweet
+                self.retweetCount.text = String(tweet.retweetCount)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+                
+                print("RETWEETED")
+                
+            }) { (error: NSError) -> () in
+                print("NO RETWEET")
+        }
+        
     }
-    */
+
+    @IBAction func onLikeButton(sender: AnyObject) {
+        likeButton.setImage(UIImage(named: "like_action_on"), forState: UIControlState.Normal)
+        TwitterClient.sharedInstance.like(tweet.id as String,
+            success: { (tweet: Tweet) -> () in
+                self.tweet = tweet
+                self.likeCount.text = String(tweet.favoritesCount)
+
+                
+                print("LIKED")
+            }) { (error: NSError) -> () in
+                print("NO LIKE")
+        }
+    }
+
+    func handleTap(sender: UITapGestureRecognizer? = nil) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("ProfileView") as! ProfileViewController
+        
+        nextViewController.tweet = self.tweet
+        
+        self.presentViewController(nextViewController, animated:true, completion:nil)
+    }
 
 }

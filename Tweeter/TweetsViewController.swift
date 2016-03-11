@@ -34,7 +34,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             self.profileImageView.setImageWithURL(self.user.profileUrl!)
             self.usernameLabel.text = self.user.name as? String
-            self.twitterHandleLabel.text = self.user.screenName as? String
+            self.twitterHandleLabel.text = "@\(self.user.screenName as! String)"
             self.backgroundImageView.setImageWithURL(self.user.backgroundImageUrl!)
             
             self.followersCountLabel.text = String(self.user.followersCount)
@@ -58,6 +58,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("Error: \(error.localizedDescription)")
         }
 
+        tableView.reloadData()
         // Do any additional setup after loading the view.
     }
 
@@ -102,6 +103,10 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let composeViewController = nav.topViewController as! ComposeViewController
             composeViewController.user = self.user
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        viewDidLoad()
     }
 
 

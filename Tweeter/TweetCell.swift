@@ -118,8 +118,6 @@ class TweetCell: UITableViewCell {
                 print("NO LIKE")
         }
         
-        likeCount.text = String(tweet.favoritesCount)
-
 
     }
 }
