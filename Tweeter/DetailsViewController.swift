@@ -133,7 +133,11 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate{
         
         let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("ProfileView") as! ProfileViewController
         
-        nextViewController.screenName = tweet.twitterHandle as String
+        if tweet.retweet_status {
+            nextViewController.screenName = tweet.retweet_handle as String
+        } else {
+            nextViewController.screenName = tweet.twitterHandle as String
+        }
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
 

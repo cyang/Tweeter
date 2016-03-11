@@ -246,11 +246,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tweeter/DetailsViewController.swift"
-            timestampString = "479427394.177461"
+            timestampString = "479429991.800025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "handleTap(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -262,7 +262,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tweeter/DetailsViewController.swift"
-            timestampString = "479427470.014948"
+            timestampString = "479429991.800025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
