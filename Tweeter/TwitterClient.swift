@@ -127,7 +127,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         GET("1.1/users/show.json?screen_name=\(screenName)", parameters: nil, progress: nil,
             success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in                
                 let userDictionary = response as! NSDictionary
-                print(userDictionary)
+
                 let user = User(dictionary: userDictionary)
                 
                 success(user)

@@ -22,9 +22,15 @@ class ComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileImageView.setImageWithURL(user.profileUrl!)
-        usernameLabel.text = user.name as? String
-        twitterHandleLabel.text = "@\(user.screenName as! String)"
+        TwitterClient.sharedInstance.currentAccount({ (user: User) -> () in
+                self.user = user
+                self.profileImageView.setImageWithURL(self.user.profileUrl!)
+                self.usernameLabel.text = self.user.name as? String
+                self.twitterHandleLabel.text = "@\(self.user.screenName as! String)"
+            }) { (error: NSError) -> () in
+                print(error.localizedDescription)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

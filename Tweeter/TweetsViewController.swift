@@ -61,6 +61,10 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.reloadData()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        viewDidLoad()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -98,11 +102,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
             let detailsViewController = segue.destinationViewController as! DetailsViewController
             detailsViewController.tweet = tweet
-        } else {
-            let nav = segue.destinationViewController as! UINavigationController
-            let composeViewController = nav.topViewController as! ComposeViewController
-            composeViewController.user = self.user
-        }
+        } 
     }
     
     override func viewWillAppear(animated: Bool) {
